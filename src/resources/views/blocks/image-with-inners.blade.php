@@ -16,7 +16,7 @@
       </div>
 
       <div class="desc flex-1 {{ $image_position === 'right' ? 'laptop:mr-7' : 'laptop:ml-7' }}">
-        @include('blocks.partials.block-inners', $controller->getInnerBlocks())
+        @include('WPPRCORE::blocks.partials.block-inners', $controller->getInnerBlocks())
       </div>
     </div>
   </div>
