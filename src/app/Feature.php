@@ -3,5 +3,5 @@
 namespace Prophe1\WPProjectsCore;
 
 abstract class Feature {
-    abstract function register();
+    abstract public function register();
 }

@@ -9,10 +9,15 @@ final class Core
 {
     private static $instance = null;
 
+    /**
+     * @var Feature[]
+     */
+    private $features;
+
     private function __construct()
     {
         $this->setDefinitions();
-        $this->enableFeatures();
+        $this->setFeatures();
     }
 
     private function setDefinitions()
@@ -24,14 +29,17 @@ final class Core
     /**
      * @var $features Feature
      */
-    private function enableFeatures()
+    private function setFeatures()
     {
-        $features = apply_filters('wp-projects-core_features', [
+        $this->features = apply_filters('wp-projects-core_features', [
             SimpleToolbar::class,
             SVG::class
         ]);
+    }
 
-        foreach ($features as $feature) {
+    public function initFeatures()
+    {
+        foreach ($this->features as $feature) {
             (new $feature)->register();
         }
     }
