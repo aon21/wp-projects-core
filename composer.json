@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Prophe1\\WPProjectsCore\\": "src"
+            "Prophe1\\WPProjectsCore\\": "src/app"
         }
     },
     "repositories": {
