@@ -1,0 +1,37 @@
+{
+    "name": "prophe1/wp-projects-core",
+    "type": "addon",
+    "authors": [
+        {
+            "name": "Prophe1",
+            "email": "sidas.snieska@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Prophe1\\WPProjectsCore\\": "src"
+        }
+    },
+    "repositories": {
+        "1": {
+            "type": "package",
+            "package": {
+                "name": "prophe1/acf-blockz",
+                "version": "0.2.6.2",
+                "type": "wordpress-muplugin",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/Prophe1/acf-blockz.git",
+                    "reference": "0.2.6.2"
+                }
+            }
+        }
+    },
+    "require": {
+        "prophe1/acf-blockz": "0.2.6.2",
+        "stoutlogic/acf-builder": "^1.11"
+    },
+    "require-dev": {
+        "johnpbloch/wordpress": "^5.7"
+    }
+}
