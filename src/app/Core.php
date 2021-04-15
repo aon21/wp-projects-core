@@ -13,7 +13,7 @@ final class Core
 
     private function setDefinitions()
     {
-        define('PROPHE1_WP_PROJECT_CORE_DIR', plugin_dir_path(__FILE__) . '../');
+        define('PROPHE1_WP_PROJECT_CORE_VIEWS_DIR', plugin_dir_path(__FILE__) . '../resources/views/');
     }
 
     public static function init(): self
