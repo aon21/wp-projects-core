@@ -26,5 +26,3 @@ final class Core
         return self::$instance;
     }
 }
-
-Core::init();

@@ -20,6 +20,7 @@ class InnerBlocks extends AbstractACFBladeBlock
             'category' => 'layout',
             'icon' => 'businessman',
             'mode' => 'preview',
+            'dir' => 'WPPRCORE',
             'supports' => [
                 'align' => false,
                 'mode' => false,
