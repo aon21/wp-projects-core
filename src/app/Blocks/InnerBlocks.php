@@ -69,7 +69,7 @@ class InnerBlocks extends AbstractACFBladeBlock
     public function getInnerBlocks()
     {
         return [
-            'allowed_blocks' => apply_filters('wpproject')[
+            'allowed_blocks' => [
                 'core/heading',
                 'core/paragraph',
                 'acf/icon-with-content',
