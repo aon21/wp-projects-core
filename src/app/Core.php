@@ -2,6 +2,7 @@
 
 namespace Prophe1\WPProjectsCore;
 
+use Prophe1\WPProjectsCore\Directives\SVG;
 use Prophe1\WPProjectsCore\Editor\SimpleToolbar;
 
 final class Core
@@ -17,6 +18,7 @@ final class Core
     private function setDefinitions()
     {
         define('PROPHE1_WP_PROJECT_CORE_VIEWS_DIR', plugin_dir_path(__FILE__) . '../resources/views/');
+        define('PROPHE1_WP_PROJECT_CORE_FIELDS_DIR', plugin_dir_path(__FILE__) . 'Fields/');
     }
 
     /**
@@ -25,7 +27,8 @@ final class Core
     private function enableFeatures()
     {
         $features = apply_filters('wp-projects-core_features', [
-            SimpleToolbar::class
+            SimpleToolbar::class,
+            SVG::class
         ]);
 
         foreach ($features as $feature) {
