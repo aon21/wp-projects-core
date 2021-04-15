@@ -20,6 +20,7 @@ class IconList extends AbstractACFBladeBlock
             'category' => 'layout',
             'icon' => 'businessman',
             'mode' => 'preview',
+            'dir' => 'WPPRCORE::',
             'parent' => ['acf/image-with-inners', 'acf/inner-blocks', 'acf/card'],
             'supports' => [
                 'align' => false,
