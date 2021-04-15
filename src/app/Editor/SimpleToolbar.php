@@ -14,7 +14,7 @@ class SimpleToolbar
         add_filter('acf/fields/wysiwyg/toolbars', function ($toolbars) {
             // formatselect,bold,italic,bullist,numlist,blockquote,alignleft,aligncenter,alignright,link,unlink,wp_more
             // spellchecker,fullscreen,wp_adv,strikethrough,hr,forecolor,pastetext,removeformat,charmap,outdent,indent,undo,redo,wp_help
-            $toolbars[THEME_TOOLBAR_SIMPLE][] = [
+            $toolbars[self::TOOLBAR_SLUG][] = apply_filters('wp-projects-core_simple_toolbar_items', [
                 'bold',
                 'italic',
                 'underline',
@@ -25,7 +25,7 @@ class SimpleToolbar
                 'alignright',
                 'link',
                 'unlink'
-            ];
+            ]);
 
             return $toolbars;
         });

@@ -70,7 +70,7 @@ class InnerBlocks extends AbstractACFBladeBlock
     public function getInnerBlocks()
     {
         return [
-            'allowed_blocks' => [
+            'allowed_blocks' => apply_filters('wp-projects-core_inner_blocks_allowed_blocks', [
                 'core/heading',
                 'core/paragraph',
                 'acf/icon-with-content',
@@ -80,7 +80,7 @@ class InnerBlocks extends AbstractACFBladeBlock
                 'core/table',
                 'acf/inner-blocks',
                 'core/block'
-            ]
+            ])
         ];
     }
 
@@ -114,26 +114,26 @@ class InnerBlocks extends AbstractACFBladeBlock
 
         $block
             ->addSelect('color', [
-                'default' => 'bg-deep-blue-5',
+                'default' => apply_filters('wp-projects-core_inner_blocks_color_default', 'bg-deep-blue-5'),
                 'conditional_logic' => [
                     'field' => 'background',
                     'operator' => '==',
                     'value' => 'color',
                 ]
             ])
-                ->addChoices([
+                ->addChoices(apply_filters('wp-projects-core_inner_blocks_color_choices', [
                     'bg-deep-blue-5' => 'Light Grey'
-                ]);
+                ]));
 
         $block
             ->addSelect('wrap', [
                 'default' => null
             ])
-                ->addChoices([
+                ->addChoices(apply_filters('wp-projects-core_inner_blocks_wrap_choices', [
                     null => 'Default',
                     'laptop:max-w-992' => 'Normal',
                     'laptop:max-w-768' => 'Small'
-                ]);
+                ]));
 
         $block->setLocation('block', '==', sprintf('acf/%s', $this->name));
 
