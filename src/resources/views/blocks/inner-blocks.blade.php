@@ -4,5 +4,5 @@
 @includeWhen($controller->hasColor(), 'WPPRCORE::blocks.partials.background-color', ['colorClass' => $controller->getColor()])
 
 <div class="container relative flow-root {{ $controller->getWrap() }}">
-  @include('blocks.partials.block-inners', $controller->getInnerBlocks())
+  @include('WPPRCORE::blocks.partials.block-inners', $controller->getInnerBlocks())
 </div>
