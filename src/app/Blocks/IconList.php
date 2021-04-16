@@ -44,6 +44,10 @@ class IconList extends AbstractACFBladeBlock
             ->addFields(Helpers::getFieldPartial('partials.mode'));
 
         $block
+            ->addFields(Helpers::getFieldPartial('partials.style'));
+
+
+        $block
             ->addRepeater('items', [
                 'layout' => 'block',
                 'collapsed' => 'title',

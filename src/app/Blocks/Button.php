@@ -41,7 +41,7 @@ class Button extends AbstractACFBladeBlock
                 $class .= 'btn--outline--green--dark ';
             }
         } else {
-            $class .= 'btn--green ';
+            $class .= 'btn--green text-white';
         }
 
         return $class;

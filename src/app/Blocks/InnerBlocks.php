@@ -79,7 +79,13 @@ class InnerBlocks extends AbstractACFBladeBlock
                 'acf/icon-list',
                 'core/table',
                 'acf/inner-blocks',
-                'core/block'
+                'core/block',
+                'core/list',
+                'core/embed',
+                'core/image',
+                'core/gallery',
+                'acf/quotes',
+                'core/preformatted'
             ])
         ];
     }

@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Fields;
-
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
 $group = new FieldsBuilder('mode');

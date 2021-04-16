@@ -52,6 +52,33 @@ class IconWithContent extends AbstractACFBladeBlock
         );
     }
 
+    public function getSize()
+    {
+
+        switch ($this->acf['image_size']) {
+            case 'XS':
+                $sizeClass = '16';
+                break;
+
+            case 'S':
+                $sizeClass = '23';
+                break;
+
+            case 'M':
+                $sizeClass = '36';
+                break;
+
+            case 'L':
+                $sizeClass = '48';
+                break;
+
+            case 'XL':
+                $sizeClass = '60';
+                break;
+        }
+
+        return $sizeClass;
+    }
 
     /**
      * Generate block fields
@@ -75,6 +102,16 @@ class IconWithContent extends AbstractACFBladeBlock
                 'left' => 'Left',
                 'top_left' => 'Top Left',
                 'top_center' => 'Top Center'
+            ])
+            ->addSelect('image_size', [
+                'label' => 'Icon Size'
+            ])
+            ->addChoices([
+                'XS' => 'XS',
+                'S' => 'S',
+                'M' => 'M',
+                'L' => 'L',
+                'XL' => 'XL'
             ]);
         $block
             ->addWysiwyg('content', [

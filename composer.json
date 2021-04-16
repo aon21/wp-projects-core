@@ -29,7 +29,8 @@
     },
     "require": {
         "prophe1/acf-blockz": "0.2.6.2",
-        "stoutlogic/acf-builder": "^1.11"
+        "stoutlogic/acf-builder": "^1.11",
+        "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
         "johnpbloch/wordpress": "^5.7"
