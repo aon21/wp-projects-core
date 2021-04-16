@@ -11,5 +11,9 @@
   "bugs": {
     "url": "https://github.com/Prophe1/wp-projects-core/issues"
   },
-  "homepage": "https://github.com/Prophe1/wp-projects-core#readme"
+  "homepage": "https://github.com/Prophe1/wp-projects-core#readme",
+  "dependencies": {
+    "baguettebox.js": "^1.11.1",
+    "scrollmagic": "^2.0.8"
+  }
 }
