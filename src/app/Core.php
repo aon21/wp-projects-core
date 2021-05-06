@@ -6,6 +6,7 @@ use Prophe1\WPProjectsCore\Directives\SVG;
 use Prophe1\WPProjectsCore\Editor\SimpleToolbar;
 use Prophe1\WPProjectsCore\Forms\SubscribeForm;
 use Prophe1\WPProjectsCore\Generic\Nonce;
+use Prophe1\WPProjectsCore\Routes\LiveSearch;
 
 final class Core
 {
@@ -37,7 +38,8 @@ final class Core
             SimpleToolbar::class,
             SVG::class,
             Nonce::class,
-            SubscribeForm::class
+            SubscribeForm::class,
+            LiveSearch::class
         ]);
     }
 
