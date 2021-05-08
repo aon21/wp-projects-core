@@ -42,7 +42,7 @@ class LiveSearch extends Feature
 
     public function register()
     {
-        add_action('wp_ajax_vote', [$this, 'initVote']);
-        add_action('wp_ajax_nopriv_vote', [$this, 'initVote']);
+        add_action('wp_ajax_search', [$this, 'initSearch']);
+        add_action('wp_ajax_nopriv_search', [$this, 'initSearch']);
     }
 }
