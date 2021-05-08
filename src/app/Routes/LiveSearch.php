@@ -4,18 +4,8 @@ namespace Prophe1\WPProjectsCore\Routes;
 
 use Prophe1\WPProjectsCore\Feature;
 
-class LiveSearch
+class LiveSearch extends Feature
 {
-    public function __construct()
-    {
-        add_action('wp_ajax_search', [$this, 'initSearch']);
-        add_action('wp_ajax_nopriv_search', [$this, 'initSearch']);
-    }
-
-    public static function init()
-    {
-        new self();
-    }
 
     private static function getToken()
     {
@@ -48,5 +38,11 @@ class LiveSearch
             echo template('partials.searchResult', ['posts' => self::getPosts(self::getType()), 'param' => self::getParam()]);
             die();
         }
+    }
+
+    public function register()
+    {
+        add_action('wp_ajax_vote', [$this, 'initVote']);
+        add_action('wp_ajax_nopriv_vote', [$this, 'initVote']);
     }
 }
