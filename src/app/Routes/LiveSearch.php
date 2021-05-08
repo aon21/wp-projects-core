@@ -35,7 +35,7 @@ class LiveSearch extends Feature
     public static function initSearch()
     {
         if (self::getParam() && self::getToken()) {
-            echo template('partials.searchResult', ['posts' => self::getPosts(self::getType()), 'param' => self::getParam()]);
+            echo \App\template('partials.searchResult', ['posts' => self::getPosts(self::getType()), 'param' => self::getParam()]);
             die();
         }
     }
