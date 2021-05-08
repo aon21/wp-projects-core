@@ -6,7 +6,7 @@ use Prophe1\WPProjectsCore\Feature;
 
 class VoteRoute extends Feature
 {
-    public static function getUserIp()
+    public function getUserIp()
     {
         if (! empty(filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP))) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -19,88 +19,71 @@ class VoteRoute extends Feature
         return $ip;
     }
 
-    private static function getToken()
+    private function getToken()
     {
         return isset($_SERVER['HTTP_X_CSRF_TOKEN']) ? $_SERVER['HTTP_X_CSRF_TOKEN'] : '';
     }
 
-    private static function getCount($postId, $metaKey)
+    private function getLikeDislikeCount($postId, $metaKey)
     {
         return get_post_meta($postId, $metaKey, true);
     }
 
-    public static function checkVoteMeta($postId, $metaKey)
+    private function checkIps($postId)
     {
-        return get_post_meta($postId, $metaKey, true);
+        return (empty(get_post_meta($postId, '_ips', true))) ? [] : get_post_meta($postId, '_ips', true);
     }
 
-    public static function checkIps($postId, $metaKey, $single)
+    private function addIps($postId, $metaKey)
     {
-        return get_post_meta($postId, $metaKey, $single);
-    }
+        $liked_ips = $this->checkIps($postId);
 
-    private static function addCount($postId, $metaKey, $status)
-    {
-        if ($metaKey) {
-            if (array_key_exists(self::getUserIp(), self::checkIps($postId, $metaKey, true))) {
-                if ($status == '_like') {
-                    if (self::getCount($postId, '_like') > 0) {
-                        update_post_meta($postId, '_like', self::getCount($postId, '_like') - 1);
-                        update_post_meta($postId, '_dislike', self::getCount($postId, '_dislike') + 1);
-                    } else {
-                        update_post_meta($postId, '_like', self::getCount($postId, '_like') + 1);
-                        update_post_meta($postId, '_dislike', self::getCount($postId, '_dislike') - 1);
-                    }
-                }
-
-                if ($status == '_dislike') {
-                    if (self::getCount($postId, '_dislike') > 0) {
-                        update_post_meta($postId, '_dislike', self::getCount($postId, '_dislike') - 1);
-                        update_post_meta($postId, '_like', self::getCount($postId, '_like') + 1);
-                    } else {
-                        update_post_meta($postId, '_dislike', self::getCount($postId, '_dislike') + 1);
-                        update_post_meta($postId, '_like', self::getCount($postId, '_like') - 1);
-                    }
-                }
-            }
-        }
-    }
-
-    private static function addIps($postId, $metaKey, $status)
-    {
-        $liked_ips = (empty(self::checkIps($postId, $metaKey, true))) ? array() : self::checkIps($postId, $metaKey, true);
-
-        if (!array_key_exists(self::getUserIp(), $liked_ips)) {
-            $liked_ips[self::getUserIp()] = [$status];
+        if (!array_key_exists($this->getUserIp(), $liked_ips)) {
+            $liked_ips[$this->getUserIp()] = $metaKey;
         } else {
-            $liked_ips[self::getUserIp()] = [$status];
+            $liked_ips[$this->getUserIp()] = $metaKey;
         }
-        self::addCount($postId, $metaKey, $status);
-        update_post_meta($postId, $metaKey, $liked_ips);
+
+        update_post_meta($postId, '_ips', $liked_ips);
     }
 
-    private static function updateMeta($postId, $metaKey)
+    private function getVotedStatus($postId)
     {
-        if (is_numeric(self::checkVoteMeta($postId, $metaKey)) && self::checkIps($postId, '_ips', false)) {
-            self::addIps($postId, '_ips', $metaKey);
-        } else {
-            update_post_meta($postId, $metaKey, 0);
-            self::addIps($postId, '_ips', $metaKey);
+        $list = get_post_meta($postId, '_ips', true);
+
+        return array_key_exists($this->getUserIp(), $list) ? $list[$this->getUserIp()] : die();
+    }
+
+    private function updateMeta($postId, $metaKey)
+    {
+        $this->addIps($postId, $metaKey);
+        $count = $this->getLikeDislikeCount($postId, $metaKey) ? $this->getLikeDislikeCount($postId, $metaKey) : 0;
+
+        if ($this->getVotedStatus($postId) == '_like') {
+            update_post_meta($postId, '_like', $count + 1);
+
+            $this->getLikeDislikeCount($postId, '_dislike') ?
+                update_post_meta($postId, '_dislike', $this->getLikeDislikeCount($postId, '_dislike') - 1) :
+                die();
+        }
+
+        if ($this->getVotedStatus($postId) == '_dislike') {
+            update_post_meta($postId, '_dislike', $count + 1);
+
+            $this->getLikeDislikeCount($postId, '_like') ?
+                update_post_meta($postId, '_like', $this->getLikeDislikeCount($postId, '_like') - 1) :
+                die();
         }
     }
 
-    public static function initVote()
+    public function initVote()
     {
-        if (sanitize_text_field($_POST['key'] == 'like')) {
-            if (wp_verify_nonce(self::getToken(), 'nonce')) {
-                self::updateMeta(sanitize_text_field($_POST['value']), '_like');
-            }
+        if (sanitize_text_field($_POST['key'] == 'like') && wp_verify_nonce($this->getToken(), 'nonce')) {
+            $this->updateMeta(sanitize_text_field($_POST['value']), '_like');
         }
 
-        if (sanitize_text_field($_POST['key'] == 'dislike')) {
-            if (wp_verify_nonce(self::getToken(), 'nonce')) {
-                self::updateMeta(sanitize_text_field($_POST['value']), '_dislike');
-            }
+        if (sanitize_text_field($_POST['key'] == 'dislike') && wp_verify_nonce($this->getToken(), 'nonce')) {
+            $this->updateMeta(sanitize_text_field($_POST['value']), '_dislike');
         }
     }
 
