@@ -7,6 +7,7 @@ use Prophe1\WPProjectsCore\Editor\SimpleToolbar;
 use Prophe1\WPProjectsCore\Forms\SubscribeForm;
 use Prophe1\WPProjectsCore\Generic\Nonce;
 use Prophe1\WPProjectsCore\Routes\LiveSearch;
+use Prophe1\WPProjectsCore\Routes\VoteRoute;
 
 final class Core
 {
@@ -39,7 +40,8 @@ final class Core
             SVG::class,
             Nonce::class,
             SubscribeForm::class,
-            LiveSearch::class
+            LiveSearch::class,
+            VoteRoute::class
         ]);
     }
 
