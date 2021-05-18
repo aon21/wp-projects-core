@@ -5,12 +5,16 @@ export const BlockDragger = () => {
   let controller = new ScrollMagic.Controller()
 
   const applyDrag = (item) => {
+
     let elem = item.querySelector('.to-drag')
     let spot = item.querySelector(item.dataset.smtrigger)
     let cont = item.querySelector('.is-sm-container')
-    let height = item.querySelector('.trigger-drag').offsetHeight;
 
-    if (!elem || elem.offsetHeight >= height) return
+    let height = item.querySelector('.trigger-drag') ?
+        item.querySelector('.trigger-drag').offsetHeight :
+        item.querySelector(item.getAttribute('data-smtrigger')).offsetHeight
+
+    if (elem.offsetHeight >= height) return
 
     let params = {
       duration: cont.offsetHeight - elem.offsetHeight,
@@ -26,9 +30,9 @@ export const BlockDragger = () => {
     }
 
     return new ScrollMagic
-      .Scene(params)
-      .setPin(elem)
-      .addTo(controller);
+        .Scene(params)
+        .setPin(elem)
+        .addTo(controller);
   }
 
   const init = () => {
