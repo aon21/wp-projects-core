@@ -2,6 +2,7 @@ export const LiveSearch = () => {
     const searchForm = document.querySelector('.searchform');
     const resultsWrapper = document.querySelector('.search-results');
     const searchInput = document.querySelector('.searchInput');
+    const loader = document.querySelector('.loader');
     const type = document.querySelector('.search-field').getAttribute('data-type');
     let res;
 
@@ -19,6 +20,7 @@ export const LiveSearch = () => {
         resultsWrapper.classList.add('rounded-b');
         searchInput.classList.remove('rounded');
         searchInput.classList.add('rounded-t');
+        loader.classList.add('hidden');
     }
 
     const Ajax = (event) => {
@@ -26,7 +28,9 @@ export const LiveSearch = () => {
         let param = event.target.value ? event.target.value : '';
 
         if (param.length >= 3 ) {
-            res = setTimeout(function () {
+            loader.classList.remove('hidden');
+
+            res = setTimeout( function() {
                 const metas = document.getElementsByName('csrf-token');
                 let token = metas[0].getAttribute('content');
                 let data = {action:'search', param:param, type:type};
