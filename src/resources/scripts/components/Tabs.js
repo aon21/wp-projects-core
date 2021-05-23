@@ -1,4 +1,4 @@
-export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-4', 'border-green', 'text-green']) => {
+export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-4', 'border-green', 'text-green'], borderClass = '.border-deep-blue-4') => {
   const ACTIVE_CLASS_LIST = activeCLassList
   const wrapper = document.querySelector(mainElem);
   const tabs = Array.from(
@@ -14,7 +14,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
           tab.classList.remove(activeClass)
         })
 
-        tab.classList.add('border-b', 'border-deep-blue-4');
+        tab.classList.add('border-b', borderClass);
       }
     });
   };
