@@ -1,4 +1,4 @@
-export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-4', 'border-green', 'text-green'], borderClass = '.border-deep-blue-4') => {
+export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-4', 'border-green', 'text-green'], borderClass = 'border-deep-blue-4') => {
   const ACTIVE_CLASS_LIST = activeCLassList
   const wrapper = document.querySelector(mainElem);
   const tabs = Array.from(
@@ -36,7 +36,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
 
   const showClicked = (index) => {
     const currentClicked = index.target.getAttribute('data-target');
-    index.target.classList.remove('border-b' ,'border-deep-blue-4');
+    index.target.classList.remove('border-b', borderClass);
 
     ACTIVE_CLASS_LIST.forEach(function (activeClass) {
       index.target.classList.add(activeClass)
