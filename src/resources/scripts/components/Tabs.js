@@ -2,8 +2,12 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
   const ACTIVE_CLASS_LIST = activeCLassList
   const wrapper = document.querySelector(mainElem);
   const tabs = Array.from(
-    wrapper.querySelectorAll('.tab')
+      wrapper.querySelectorAll('.tab')
   );
+
+  const scrollto = (scrollTo) => {
+    document.getElementById(scrollTo).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
   const hidePrevious = (currentClicked) => {
     tabs.forEach(function (tab) {
@@ -22,7 +26,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
   const showPanel = (currentClicked) => {
     const panelsContainer = wrapper.querySelector('.panels-container');
     const panels = Array.from(
-      panelsContainer.querySelectorAll('.single-panel')
+        panelsContainer.querySelectorAll('.single-panel')
     );
 
     panels.forEach(function (panel) {
@@ -44,6 +48,10 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
 
     hidePrevious(currentClicked);
     showPanel(currentClicked);
+
+    if (mainElem === '.bare-metal-pricing-wrapper') {
+      scrollto(index.target.getAttribute('data-scroll'));
+    }
   };
 
   const init = () => {
