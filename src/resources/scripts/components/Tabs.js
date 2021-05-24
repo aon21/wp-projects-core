@@ -10,6 +10,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
   }
 
   const hidePrevious = (currentClicked) => {
+    console.log(currentClicked);
     tabs.forEach(function (tab) {
       const previous = tab.getAttribute('data-target');
 
@@ -49,7 +50,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
     hidePrevious(currentClicked);
     showPanel(currentClicked);
 
-    if (mainElem == '.bare-metal-pricing-wrapper') {
+    if (mainElem === '.bare-metal-pricing-wrapper') {
       scrollto(index.target.getAttribute('data-scroll'));
     }
   };
