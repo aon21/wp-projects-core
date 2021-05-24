@@ -1,4 +1,4 @@
-export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-4', 'border-green', 'text-green'], borderClass = 'border-deep-blue-4') => {
+export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-4', 'border-green', 'text-green']) => {
   const ACTIVE_CLASS_LIST = activeCLassList
   const wrapper = document.querySelector(mainElem);
   const tabs = Array.from(
@@ -18,7 +18,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
           tab.classList.remove(activeClass)
         })
 
-        tab.classList.add('border-b', borderClass);
+        tab.classList.add('border-b', 'border-dblu-lbor');
       }
     });
   };
@@ -40,7 +40,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
 
   const showClicked = (index) => {
     const currentClicked = index.target.getAttribute('data-target');
-    index.target.classList.remove('border-b', borderClass);
+    index.target.classList.remove('border-b' ,'border-dblu-lbor');
 
     ACTIVE_CLASS_LIST.forEach(function (activeClass) {
       index.target.classList.add(activeClass)
@@ -49,7 +49,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
     hidePrevious(currentClicked);
     showPanel(currentClicked);
 
-    if (mainElem === '.bare-metal-pricing-wrapper') {
+    if (mainElem == '.bare-metal-pricing-wrapper') {
       scrollto(index.target.getAttribute('data-scroll'));
     }
   };
