@@ -40,7 +40,7 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
   };
 
   const showClicked = (index) => {
-    const currentClicked = index.target.getAttribute('data-target');
+    let currentClicked = index.target.getAttribute('data-target');
     index.target.classList.remove('border-b' ,'border-dblu-lbor');
 
     ACTIVE_CLASS_LIST.forEach(function (activeClass) {
