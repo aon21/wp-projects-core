@@ -24,13 +24,17 @@ export const Navigation = () => {
     wrap.classList.remove(SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS)
     expanders[0].classList.remove(OPEN_ITEM_ACTIVE_CLASS)
     expanders[0].nextElementSibling.classList.remove(SUBMENU_ACTIVE_CLASS)
-    mobMenu.nextElementSibling.classList.add('mobile-tablet:hidden', 'tablet-desktop:hidden');
+    if (mobMenu.nextElementSibling) {
+      mobMenu.nextElementSibling.classList.add('mobile-tablet:hidden', 'tablet-desktop:hidden');
+    }
   }
 
   const openMenu = () => {
     toggler.classList.add(TOGGLER_ACTIVE_CLASS)
     wrap.classList.add(SITE_HEADER_MOBILE_ACTIVE_CLASS)
-    mobMenu.nextElementSibling.classList.remove('mobile-tablet:hidden', 'tablet-desktop:hidden');
+    if (mobMenu.nextElementSibling) {
+      mobMenu.nextElementSibling.classList.remove('mobile-tablet:hidden', 'tablet-desktop:hidden');
+    }
     if (!maxWidth.matches) {
       expanders[0].classList.add(OPEN_ITEM_ACTIVE_CLASS)
       openItem(expanders[0])
