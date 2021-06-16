@@ -32,7 +32,7 @@ class Button extends AbstractACFBladeBlock
 
     public function getButtonClass()
     {
-        $class = '';
+        $class = isset($this->acf['full']) && $this->acf['full'] === true ? 'w-full ' : '';
 
         if ($this->acf['design'] === 'outlined') {
             $class .= 'btn--outline btn--outline--green ';
@@ -80,6 +80,8 @@ class Button extends AbstractACFBladeBlock
             ])
             ->addChoices([
                 'link' => 'Link',
+                'button' => 'Button',
+                'modal' => 'Modal',
             ]);
 
         $block
@@ -90,6 +92,27 @@ class Button extends AbstractACFBladeBlock
                     'value' => 'link',
                 ]
             ]);
+        $block
+            ->addText('buttonName', [
+                'label' => 'Button name',
+                'conditional_logic' => [
+                    [
+                        'field' => 'action',
+                        'operator' => '==',
+                        'value' => 'modal',
+                    ],
+                ],
+            ]);
+
+        $block
+            ->addText('kButtonName', [
+                'label' => __('Kayako button name', 'sage'),
+                'conditional_logic' => [
+                    'field' => 'action',
+                    'operator' => '==',
+                    'value' => 'button',
+                ]
+            ]);
 
         $block
             ->addText('rel', [
@@ -98,6 +121,11 @@ class Button extends AbstractACFBladeBlock
                     'operator' => '==',
                     'value' => 'link',
                 ]
+            ]);
+
+        $block
+            ->addTrueFalse('full', [
+                'label' => __('Full Width?', 'sage'),
             ]);
 
         $block->setLocation('block', '==', sprintf('acf/%s', $this->name));
