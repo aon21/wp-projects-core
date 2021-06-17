@@ -21,7 +21,7 @@ class Button extends AbstractACFBladeBlock
             'icon' => 'businessman',
             'mode' => 'preview',
             'dir' => 'WPPRCORE::',
-            'parent' => ['acf/image-with-inners', 'acf/inner-blocks', 'acf/card'],
+            'parent' => ['acf/image-with-inners', 'acf/inner-blocks', 'acf/card', 'core/column'],
             'supports' => [
                 'align' => ['left', 'right', 'center'],
                 'mode' => false,
