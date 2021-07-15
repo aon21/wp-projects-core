@@ -32,6 +32,11 @@ class LiveSearch extends Feature
         ]);
     }
 
+    public static function getTaxonomy()
+    {
+        return get_object_taxonomies(self::getType());
+    }
+
     public static function initSearch()
     {
         if (self::getParam() && self::getToken()) {
