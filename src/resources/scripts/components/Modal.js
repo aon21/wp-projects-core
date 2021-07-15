@@ -22,6 +22,9 @@ export const Modal = () => {
         event.key === 'Escape' ? closeClass() : '';
         event.target === modal ? closeClass() : '';
         event.target === closeButton ? closeClass() : '';
+        if (event.target.tagName === 'svg' || event.target.tagName === 'path') {
+            closeClass()
+        }
     }
 
     const open = () => {
