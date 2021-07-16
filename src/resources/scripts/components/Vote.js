@@ -4,6 +4,25 @@ export const Vote = (mainElem = '.kb-helpful') => {
     wrapper.querySelectorAll('.btn')
   );
 
+  const addClass = (index, status) => {
+    if (index.target.classList.contains('btn--outline--blue')) {
+
+      if (status === 'like') {
+        index.target.classList.remove('btn--outline', 'btn--outline--blue');
+        index.target.classList.add('btn--blue');
+        btns[1].classList.remove('btn--blue');
+        btns[1].classList.add('btn--outline', 'btn--outline--blue');
+      }
+
+      if (status === 'dislike') {
+        index.target.classList.remove('btn--outline', 'btn--outline--blue');
+        index.target.classList.add('btn--blue');
+        btns[0].classList.remove('btn--blue');
+        btns[0].classList.add('btn--outline', 'btn--outline--blue');
+      }
+    }
+  }
+
   const Ajax = (index, key, postId) => {
     const metas = document.getElementsByName('csrf-token');
     let token = metas[0].getAttribute('content');
@@ -22,10 +41,12 @@ export const Vote = (mainElem = '.kb-helpful') => {
 
   const Like = (index) => {
     Ajax(index, 'like', index.target.getAttribute('data-target'));
+    addClass(index, 'like');
   }
 
   const Dislike = (index) => {
     Ajax(index, 'dislike', index.target.getAttribute('data-target'));
+    addClass(index, 'dislike');
   }
 
   const init = () => {
