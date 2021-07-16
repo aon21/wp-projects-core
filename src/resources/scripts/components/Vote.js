@@ -5,7 +5,7 @@ export const Vote = (mainElem = '.kb-helpful') => {
   );
 
   const addClass = (index, status) => {
-    if (index.target.classList.contains('btn--outline--grey')) {
+    if (index.target.classList.contains('btn--outline--blue')) {
 
       if (status === 'like') {
         index.target.classList.remove('btn--outline', 'btn--outline--blue');
