@@ -75,8 +75,6 @@ export const Navigation = () => {
   }
 
   const toggleItem = (event, item) => {
-    event.preventDefault()
-
     if (! isExpandItemActive(item)) openItem(item)
   }
 
