@@ -85,7 +85,8 @@ class InnerBlocks extends AbstractACFBladeBlock
                 'core/image',
                 'core/gallery',
                 'acf/quotes',
-                'core/preformatted'
+                'core/preformatted',
+                'acf/sidebar-with-inners',
             ])
         ];
     }
