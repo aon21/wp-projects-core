@@ -67,7 +67,9 @@ export const Navigation = () => {
 
     item.classList.add(OPEN_ITEM_ACTIVE_CLASS)
     account.classList.add(ACCOUNT_CLASS)
-    sub.classList.add(SUBMENU_ACTIVE_CLASS)
+    if (maxWidth.matches) {
+      sub.classList.add(SUBMENU_ACTIVE_CLASS)
+    }
     wrap.classList.add(SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS)
 
     prevActiveMenuItem = item
@@ -78,7 +80,9 @@ export const Navigation = () => {
 
     item.classList.remove(OPEN_ITEM_ACTIVE_CLASS)
     account.classList.remove(ACCOUNT_CLASS)
-    sub.classList.remove(SUBMENU_ACTIVE_CLASS)
+    if (maxWidth.matches) {
+      sub.classList.remove(SUBMENU_ACTIVE_CLASS)
+    }
     wrap.classList.remove(SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS)
   }
 
