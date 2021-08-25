@@ -1,10 +1,12 @@
 export const Navigation = () => {
+  const BODY_ACTIVE_CLASS = 'overflow-hidden'
   const TOGGLER_ACTIVE_CLASS = 'btn-me--active'
   const SITE_HEADER_MOBILE_ACTIVE_CLASS = 'site-header--mobile-active'
   const SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS = 'site-header--submenu-active'
   const OPEN_ITEM_ACTIVE_CLASS = 'menu-link--active'
   const SUBMENU_ACTIVE_CLASS = 'sub-menu--active'
 
+  const body = document.querySelector('body')
   const wrap = document.querySelector('.site-header')
   const toggler = wrap.querySelector('.btn-me')
   const subBack = wrap.querySelector('.site-header__nav-cont-back')
@@ -19,6 +21,7 @@ export const Navigation = () => {
   }
 
   const closeMenu = () => {
+    body.classList.remove(BODY_ACTIVE_CLASS)
     toggler.classList.remove(TOGGLER_ACTIVE_CLASS)
     wrap.classList.remove(SITE_HEADER_MOBILE_ACTIVE_CLASS)
     wrap.classList.remove(SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS)
@@ -32,6 +35,7 @@ export const Navigation = () => {
   }
 
   const openMenu = () => {
+    body.classList.add(BODY_ACTIVE_CLASS)
     toggler.classList.add(TOGGLER_ACTIVE_CLASS)
     wrap.classList.add(SITE_HEADER_MOBILE_ACTIVE_CLASS)
     if (mobMenu.nextElementSibling) {
