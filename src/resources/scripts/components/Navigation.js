@@ -66,7 +66,7 @@ export const Navigation = () => {
     const sub = item.nextElementSibling
 
     item.classList.add(OPEN_ITEM_ACTIVE_CLASS)
-    if (maxWidth.matches) {
+    if (maxWidth.matches && account) {
       account.classList.add(ACCOUNT_CLASS)
     }
     sub.classList.add(SUBMENU_ACTIVE_CLASS)
@@ -79,7 +79,7 @@ export const Navigation = () => {
     const sub = item.nextElementSibling
 
     item.classList.remove(OPEN_ITEM_ACTIVE_CLASS)
-    if (maxWidth.matches) {
+    if (maxWidth.matches && account) {
       account.classList.remove(ACCOUNT_CLASS)
     }
     sub.classList.remove(SUBMENU_ACTIVE_CLASS)
