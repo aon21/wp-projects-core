@@ -65,6 +65,9 @@ export const Navigation = () => {
 
     item.classList.add(OPEN_ITEM_ACTIVE_CLASS)
     sub.classList.add(SUBMENU_ACTIVE_CLASS)
+    if (maxWidth.matches) {
+      window.scrollTo(0, 0);
+    }
     wrap.classList.add(SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS)
 
     prevActiveMenuItem = item
