@@ -1,5 +1,4 @@
 export const Navigation = () => {
-  const ACCOUNT_CLASS = 'hidden'
   const BODY_ACTIVE_CLASS = 'overflow-hidden'
   const TOGGLER_ACTIVE_CLASS = 'btn-me--active'
   const SITE_HEADER_MOBILE_ACTIVE_CLASS = 'site-header--mobile-active'
@@ -7,7 +6,6 @@ export const Navigation = () => {
   const OPEN_ITEM_ACTIVE_CLASS = 'menu-link--active'
   const SUBMENU_ACTIVE_CLASS = 'sub-menu--active'
 
-  const account = document.querySelector('.account')
   const body = document.querySelector('body')
   const wrap = document.querySelector('.site-header')
   const toggler = wrap.querySelector('.btn-me')
@@ -66,9 +64,6 @@ export const Navigation = () => {
     const sub = item.nextElementSibling
 
     item.classList.add(OPEN_ITEM_ACTIVE_CLASS)
-    if (maxWidth.matches && account) {
-      account.classList.add(ACCOUNT_CLASS)
-    }
     sub.classList.add(SUBMENU_ACTIVE_CLASS)
     wrap.classList.add(SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS)
 
@@ -79,9 +74,6 @@ export const Navigation = () => {
     const sub = item.nextElementSibling
 
     item.classList.remove(OPEN_ITEM_ACTIVE_CLASS)
-    if (maxWidth.matches && account) {
-      account.classList.remove(ACCOUNT_CLASS)
-    }
     sub.classList.remove(SUBMENU_ACTIVE_CLASS)
     wrap.classList.remove(SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS)
   }
