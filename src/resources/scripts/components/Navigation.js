@@ -6,6 +6,7 @@ export const Navigation = () => {
   const OPEN_ITEM_ACTIVE_CLASS = 'menu-link--active'
   const SUBMENU_ACTIVE_CLASS = 'sub-menu--active'
 
+  const mobWrapper = document.querySelector('.site-header__nav-wrap')
   const body = document.querySelector('body')
   const wrap = document.querySelector('.site-header')
   const toggler = wrap.querySelector('.btn-me')
@@ -66,7 +67,7 @@ export const Navigation = () => {
     item.classList.add(OPEN_ITEM_ACTIVE_CLASS)
     sub.classList.add(SUBMENU_ACTIVE_CLASS)
     if (maxWidth.matches) {
-      window.scrollTo(0, 0);
+      mobWrapper.scrollTo(0, 0);
     }
     wrap.classList.add(SITE_HEADER_MOBILE_SUB_MENU_ACTIVE_CLASS)
 
