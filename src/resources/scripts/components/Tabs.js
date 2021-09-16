@@ -10,7 +10,6 @@ export const Tabs = (mainElem = '.panels-wrapper', activeCLassList = ['border-b-
   }
 
   const hidePrevious = (currentClicked) => {
-    console.log(currentClicked);
     tabs.forEach(function (tab) {
       const previous = tab.getAttribute('data-target');
 
