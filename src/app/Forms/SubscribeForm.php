@@ -39,13 +39,7 @@ class SubscribeForm extends Feature
                 ],
                 [
                     [
-                        'first_name' => $postedData['first_name'],
-                        'last_name' => $postedData['last_name'],
                         'email' => $postedData['email'],
-                        'custom_fields' => [
-                            'e11_T' => $postedData['full_name'],
-                            'e4_T' => $postedData['company_name']
-                        ]
                     ]
                 ]
             );
