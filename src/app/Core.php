@@ -2,7 +2,6 @@
 
 namespace Prophe1\WPProjectsCore;
 
-use Prophe1\WPProjectsCore\Directives\SVG;
 use Prophe1\WPProjectsCore\Editor\SimpleToolbar;
 use Prophe1\WPProjectsCore\Forms\SubscribeForm;
 use Prophe1\WPProjectsCore\Generic\Nonce;
@@ -38,7 +37,6 @@ final class Core
     {
         $this->features = apply_filters('wp-projects-core_features', [
             SimpleToolbar::class,
-            SVG::class,
             Nonce::class,
             SubscribeForm::class,
             LiveSearch::class,
