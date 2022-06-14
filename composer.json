@@ -1,10 +1,10 @@
 {
-    "name": "prophe1/wp-projects-core",
+    "name": "aon21/wp-projects-core",
     "type": "addon",
     "authors": [
         {
-            "name": "Prophe1",
-            "email": "sidas.snieska@gmail.com"
+            "name": "aon21",
+            "email": "mantas.tautvaisa@gmail.com"
         }
     ],
     "autoload": {
