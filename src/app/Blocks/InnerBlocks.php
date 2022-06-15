@@ -31,12 +31,12 @@ class InnerBlocks extends AbstractACFBladeBlock
 
     public function bgIsColor()
     {
-        return isset($this->acf['background']) === 'color';
+        return $this->acf['background'] === 'color';
     }
 
     public function bgIsImage()
     {
-        return isset($this->acf['background']) === 'image';
+        return $this->acf['background'] === 'image';
     }
 
     public function hasColor()
