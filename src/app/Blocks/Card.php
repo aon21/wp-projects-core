@@ -41,8 +41,7 @@ class Card extends AbstractACFBladeBlock
                 'acf/button',
                 'core/list',
                 'acf/resources',
-                'acf/icon-list',
-                'acf/form'
+                'acf/icon-list'
             ])
         ];
     }

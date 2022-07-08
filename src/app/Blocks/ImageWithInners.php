@@ -39,8 +39,7 @@ class ImageWithInners extends AbstractACFBladeBlock
                 'core/heading',
                 'core/paragraph',
                 'acf/icon-with-content',
-                'acf/card',
-                'acf/form'
+                'acf/card'
             ])
         ];
     }
