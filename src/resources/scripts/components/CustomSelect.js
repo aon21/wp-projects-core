@@ -16,10 +16,8 @@ export const CustomSelect = (mainElem = '.custom-select-wrapper') => {
     }
 
     const select = (index) => {
-        console.log(index.target);
-        console.log(index.target.parentNode.querySelector('.custom-option.selected'));
         if (!index.target.classList.contains('selected')) {
-            index.target.parentNode.querySelector('.custom-option.selected').classList.remove('selected', 'text-green');
+            index.target.parentNode.querySelector('.selected').classList.remove('selected', 'text-green');
             index.target.classList.add('selected', 'text-green');
             index.target.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = index.target.textContent;
             index.target.parentNode.parentNode.classList.remove('open');
