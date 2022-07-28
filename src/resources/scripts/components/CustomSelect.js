@@ -16,7 +16,7 @@ export const CustomSelect = (mainElem = '.custom-select-wrapper') => {
     }
 
     const select = (index) => {
-        console.log(index.target.parentNode.querySelector('.selected'));
+        console.log(index.target.parentNode);
         console.log(index.target);
         if (!index.target.classList.contains('selected')) {
             index.target.parentNode.querySelector('.selected').classList.remove('selected', 'text-green');
