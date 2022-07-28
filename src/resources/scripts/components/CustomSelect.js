@@ -16,8 +16,10 @@ export const CustomSelect = (mainElem = '.custom-select-wrapper') => {
     }
 
     const select = (index) => {
-        if (!index.target.classList.contains('selected') && !index.target.tagName) {
-            index.target.parentNode.querySelector('.selected').classList.remove('selected', 'text-green');
+        if (!index.target.classList.contains('selected')) {
+            if (index.target.tagName !== 'A') {
+                index.target.parentNode.querySelector('.selected').classList.remove('selected', 'text-green');
+            }
             index.target.classList.add('selected', 'text-green');
             index.target.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = index.target.textContent;
             index.target.parentNode.parentNode.classList.remove('open');
