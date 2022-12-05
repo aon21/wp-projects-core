@@ -81,6 +81,7 @@ class InnerBlocks extends AbstractACFBladeBlock
                 'acf/inner-blocks',
                 'core/block',
                 'core/list',
+                'core/list-item',
                 'core/embed',
                 'core/image',
                 'core/gallery',

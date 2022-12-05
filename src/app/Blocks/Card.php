@@ -40,6 +40,7 @@ class Card extends AbstractACFBladeBlock
                 'core/paragraph',
                 'acf/button',
                 'core/list',
+                'core/list-item',
                 'acf/resources',
                 'acf/icon-list'
             ])
