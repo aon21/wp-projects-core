@@ -21,7 +21,7 @@ class IconWithContent extends AbstractACFBladeBlock
             'icon' => 'businessman',
             'mode' => 'preview',
             'dir' => 'WPPRCORE::',
-            'parent' => ['acf/image-with-inners', 'acf/card'],
+            'parent' => ['acf/image-with-inners', 'acf/card', 'core/column'],
             'supports' => [
                 'align' => false,
                 'mode' => false,
