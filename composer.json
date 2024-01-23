@@ -28,7 +28,7 @@
         }
     },
     "require": {
-        "prophe1/acf-blockz": "0.2.9",
+        "prophe1/acf-blockz": "0.2.6.2",
         "stoutlogic/acf-builder": "^1.11",
         "guzzlehttp/guzzle": "7.5"
     },
